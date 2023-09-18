@@ -12,34 +12,66 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
+  <link href="./dist/index.css" rel="stylesheet">
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
-
+  <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
+  
 </head>
 <body>
-
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
-    <div class="row">
-      <div class="one-half column" style="margin-top: 25%">
-        <h4>Basic Page</h4>
-        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
+    <div
+      class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center"
+    >
+      <div class="mx-auto max-w-xl text-center">
+        <h1 class="text-3xl font-extrabold sm:text-5xl">
+          소셜웨이 💘
+        </h1>
+  
+        <p class="mt-4 sm:text-xl/relaxed">
+          축제는 이렇게 어쩌구 저쩌구
+        </p>
+  
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a
+            target="_blank"
+            id="matching-button"
+            class="block w-full rounded bg-red-600 px-12 py-3 text-lg font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto"
+            href="#"
+          >
+            9시에 매칭 받기
+          </a>
+          <a
+            target="_blank"
+            id="pool-button"
+            class="underline w-full px-12 py-3 text-xs font-medium text-red-600 hover:text-red-700 focus:outline-none focus:ring active:text-red-500 sm:w-auto"
+            href="#"
+          >
+            오늘 말고 다른날 매칭해주세요!
+          </a>
+        </div>
       </div>
     </div>
-  </div>
+  
 
-<!-- End Document
+  <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
+<script>
+  const matchingUrl = new URL("https://tally.so/r/3NlWgO") // TODO: change this
+  const poolUrl = new URL("https://tally.so/r/3NlWgO") // TODO: change this
+  
+  window.onload = function() {
+    const target = new URLSearchParams(window.location.search).get("from")
+    
+    matchingUrl.searchParams.append("from", target)
+    poolUrl.searchParams.append("from", target)
+
+    document.getElementById("pool-button").setAttribute("href", matchingUrl.href)
+    document.getElementById("matching-button").setAttribute("href", poolUrl.href)
+  }
+</script>
 </html>

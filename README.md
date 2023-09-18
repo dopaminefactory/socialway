@@ -2,4 +2,4 @@
 
 ## Reference
 
-- getskeleton.com
+- [TailwindCSS](https://tailwindcss.com/docs/installation)
