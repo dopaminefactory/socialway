@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <!-- Basic Page Needs
@@ -20,39 +21,34 @@
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
-  
+
 </head>
+
 <body>
-    <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
-      <div class="mx-auto max-w-xl text-center">
-        <h1 class="text-3xl font-extrabold sm:text-5xl">
-          두근 두근 퀸쿠아트리아 💘
-        </h1>
-  
-        <p class="mt-4 sm:text-xl/relaxed">
-          오늘 축제를 함께 즐길 내 운명의 상대는?
-        </p>
-          <div class="gap-4 mt-8 flex flex-wrap justify-center">
-            <a
-              target="_blank"
-              id="matching-button"
-              class="block w-full rounded bg-red-600 px-12 py-3 text-lg font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500"
-              href="#"
-            >
-              오늘 5시에 매칭 받기
-            </a>
-            <a
-              target="_blank"
-              id="pool-button"
-              class="underline w-full w-full px-12 py-3 text-xs font-medium text-red-600 hover:text-red-700 focus:outline-none focus:ring active:text-red-500"
-              href="#"
-            >
-              축제랑 상관 없이 <span id="typed">재밌는</span> 사람 만나고 싶어
-            </a>
-        </div>
+  <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
+    <div class="mx-auto max-w-xl text-center">
+      <h1 class="text-3xl font-extrabold sm:text-5xl">
+        두근 두근 퀸쿠아트리아 💘
+      </h1>
+
+      <p class="mt-4 sm:text-xl/relaxed">
+        축제 마지막 날 함께 즐길 사람을 찾고싶다면...
+      </p>
+      <div class="gap-4 mt-8 flex flex-wrap justify-center">
+        <a target="_blank" id="matching-button"
+          class="block w-full rounded bg-red-600 px-12 py-3 text-lg font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500"
+          href="#">
+          오후 5시까지 매칭 받기
+        </a>
+        <a target="_blank" id="pool-button"
+          class="underline w-full w-full px-12 py-3 text-xs font-medium text-red-600 hover:text-red-700 focus:outline-none focus:ring active:text-red-500"
+          href="#">
+          축제가 끝난 뒤에도 <span id="typed">새로운</span> 사람을 만나보고 싶어
+        </a>
       </div>
     </div>
-  
+  </div>
+
 
   <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -67,25 +63,25 @@
     "잘생긴",
     "예쁜",
     "키 큰",
-    "키 작은",
+    "아담한",
     "똑똑한",
     "멋있는",
-    "건장한",
+    "몸 좋은",
     "날씬한",
-    "통통한"
+    "어른스러운"
   ];
-  
+
   const matchingUrl = new URL("https://tally.so/r/nP1qW0") // TODO: change this
   const poolUrl = new URL("https://tally.so/r/wbjJJ6") // TODO: change this
-  
-  window.onload = function() {
+
+  window.onload = function () {
     const target = new URLSearchParams(window.location.search).get("from")
-  
+
     if (target) {
       matchingUrl.searchParams.append("from", target)
       poolUrl.searchParams.append("from", target)
     }
-  
+
     document.getElementById("pool-button").setAttribute("href", poolUrl.href)
     document.getElementById("matching-button").setAttribute("href", matchingUrl.href)
 
@@ -94,22 +90,22 @@
     }, 1500)
   }
 
-  
+
 
   // 글자 입력 속도
   const speed = 50;
 
   const writeText = async (htmlElement, text) => {
-    while(text.length) {
+    while (text.length) {
       await wait(speed);
       htmlElement.innerHTML += text.shift();
     }
   }
 
   // 타이핑 효과
-  const typing = async (htmlElement, letters) => {  
+  const typing = async (htmlElement, letters) => {
     let i = 1;
-    while(true) {
+    while (true) {
       const letter = letters[i].split("");
       await removeText(htmlElement);
       await writeText(htmlElement, letter);
@@ -134,4 +130,5 @@
     return new Promise(res => setTimeout(res, ms))
   }
 </script>
+
 </html>
